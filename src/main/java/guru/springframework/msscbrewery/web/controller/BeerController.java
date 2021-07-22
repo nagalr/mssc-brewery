@@ -50,11 +50,10 @@ public class BeerController {
     public ResponseEntity<BeerDto> handleUpdate(@RequestBody BeerDto beerDto,
                                                 @PathVariable("beerId") UUID beerId) {
 
-        BeerDto savedDto = beerService.getBeer(beerDto);
+        beerService.updateBeer(beerDto, beerId);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.add("Location", "/api/v1/beer/"  + savedDto.getId().toString());
 
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(headers, HttpStatus.NO_CONTENT);
     }
 }

@@ -30,11 +30,7 @@ public class BeerServiceImpl implements BeerService {
     }
 
     @Override
-    public BeerDto getBeer(BeerDto beerDto) {
-        return BeerDto.builder()
-                .id(beerDto.getId())
-                .beerName(beerDto.getBeerName())
-                .beerStyle(beerDto.getBeerStyle())
-                .build();
+    public void updateBeer(BeerDto beerDto, UUID beerId) {
+//        return null;
     }
 }
