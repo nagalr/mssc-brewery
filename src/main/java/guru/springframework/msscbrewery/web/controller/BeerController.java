@@ -43,7 +43,7 @@ public class BeerController {
 
         headers.setDate("Current GMT Date and Time", d. getTime());
 
-        return new ResponseEntity<>(headers, HttpStatus.CREATED);
+        return new ResponseEntity<>(savedDto, headers, HttpStatus.CREATED);
     }
 
     @PutMapping({"/{beerId}"})
