@@ -121,7 +121,7 @@ class BeerControllerTest {
 
         // when
         mockMvc.perform(delete("/api/v1/beer/" + validBeer.getId().toString()))
-                .andExpect(status().isOk());
+                .andExpect(status().isNoContent());
 
         // then
         then(beerService).should(times(1)).deleteBeer(any(UUID.class));
