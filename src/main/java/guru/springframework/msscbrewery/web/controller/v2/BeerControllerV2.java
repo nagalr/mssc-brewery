@@ -1,7 +1,7 @@
 package guru.springframework.msscbrewery.web.controller.v2;
 
-import guru.springframework.msscbrewery.services.BeerService;
-import guru.springframework.msscbrewery.web.model.BeerDto;
+import guru.springframework.msscbrewery.services.v2.BeerServiceV2;
+import guru.springframework.msscbrewery.web.model.v2.BeerDtoV2;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,22 +19,22 @@ import java.util.UUID;
 @RestController
 public class BeerControllerV2 {
 
-    private final BeerService beerService;
+    private final BeerServiceV2 beerServiceV2;
 
-    public BeerControllerV2(BeerService beerService) {
-        this.beerService = beerService;
+    public BeerControllerV2(BeerServiceV2 beerServiceV2) {
+        this.beerServiceV2 = beerServiceV2;
     }
 
     @GetMapping({"/{beerId}"})
-    public ResponseEntity<BeerDto> getBeer(@PathVariable("beerId") UUID beerId){
+    public ResponseEntity<BeerDtoV2> getBeer(@PathVariable("beerId") UUID beerId){
 
-        return new ResponseEntity<>(beerService.getBeerById(beerId), HttpStatus.OK);
+        return new ResponseEntity<>(beerServiceV2.getBeerById(beerId), HttpStatus.OK);
     }
 
     @PostMapping
-    public ResponseEntity<BeerDto> handlePost(@RequestBody BeerDto beerDto) {
+    public ResponseEntity<BeerDtoV2> handlePost(@RequestBody BeerDtoV2 beerDtoV2) {
 
-        BeerDto savedDto = beerService.saveBeer(beerDto);
+        BeerDtoV2 savedDto = beerServiceV2.saveBeer(beerDtoV2);
         HttpHeaders headers = new HttpHeaders();
 
         headers.add("Content-Type", "application/json");
@@ -49,10 +49,10 @@ public class BeerControllerV2 {
     }
 
     @PutMapping({"/{beerId}"})
-    public ResponseEntity<BeerDto> handleUpdate(@RequestBody BeerDto beerDto,
+    public ResponseEntity<BeerDtoV2> handleUpdate(@RequestBody BeerDtoV2 beerDto,
                                                 @PathVariable("beerId") UUID beerId) {
 
-        beerService.updateBeer(beerDto, beerId);
+        beerServiceV2.updateBeer(beerDto, beerId);
 
         HttpHeaders headers = new HttpHeaders();
 
@@ -63,7 +63,7 @@ public class BeerControllerV2 {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void handleDelete(@PathVariable("beerId") UUID beerId) {
 
-        beerService.deleteBeer(beerId);
+        beerServiceV2.deleteBeer(beerId);
     }
 
 
