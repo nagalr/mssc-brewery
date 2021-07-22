@@ -1,4 +1,4 @@
-package guru.springframework.msscbrewery.web.controller;
+package guru.springframework.msscbrewery.web.controller.v2;
 
 import guru.springframework.msscbrewery.services.BeerService;
 import guru.springframework.msscbrewery.web.model.BeerDto;
@@ -11,15 +11,17 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by jt on 2019-04-20.
+ * Created by ronnen on 22-Jul-2021
  */
-@RequestMapping("/api/v1/beer")
+
+
+@RequestMapping("/api/v2/beer")
 @RestController
-public class BeerController {
+public class BeerControllerV2 {
 
     private final BeerService beerService;
 
-    public BeerController(BeerService beerService) {
+    public BeerControllerV2(BeerService beerService) {
         this.beerService = beerService;
     }
 
@@ -63,4 +65,8 @@ public class BeerController {
 
         beerService.deleteBeer(beerId);
     }
+
+
+
 }
+
