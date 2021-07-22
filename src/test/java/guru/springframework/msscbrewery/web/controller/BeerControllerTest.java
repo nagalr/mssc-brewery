@@ -113,4 +113,17 @@ class BeerControllerTest {
         // then
         then(beerService).should(times(1)).updateBeer(any(BeerDto.class), any(UUID.class));
     }
+
+    @Test
+    void handleDeleteTest() throws Exception {
+
+        // given - none, its void
+
+        // when
+        mockMvc.perform(delete("/api/v1/beer/" + validBeer.getId().toString()))
+                .andExpect(status().isOk());
+
+        // then
+        then(beerService).should(times(1)).deleteBeer(any(UUID.class));
+    }
 }

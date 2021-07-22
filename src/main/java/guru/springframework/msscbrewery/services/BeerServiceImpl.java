@@ -33,4 +33,10 @@ public class BeerServiceImpl implements BeerService {
     public void updateBeer(BeerDto beerDto, UUID beerId) {
 //        return null;
     }
+
+    @Override
+    public void deleteBeer(UUID beerId) {
+
+        // todo - return null
+    }
 }
