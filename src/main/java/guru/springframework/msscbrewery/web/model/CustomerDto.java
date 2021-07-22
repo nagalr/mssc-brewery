@@ -17,6 +17,6 @@ import java.util.UUID;
 @Builder
 public class CustomerDto {
 
-    private UUID Id;
+    private UUID id;
     private String name;
 }

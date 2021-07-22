@@ -15,7 +15,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public CustomerDto getCustomerById(UUID customerId) {
         return CustomerDto.builder()
-                .Id(UUID.randomUUID())
+                .id(UUID.randomUUID())
                 .name("The Customer")
                 .build();
     }
