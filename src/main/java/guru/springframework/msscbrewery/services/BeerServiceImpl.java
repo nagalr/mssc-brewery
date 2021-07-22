@@ -10,6 +10,7 @@ import java.util.UUID;
  */
 @Service
 public class BeerServiceImpl implements BeerService {
+
     @Override
     public BeerDto getBeerById(UUID beerId) {
         return BeerDto.builder().id(UUID.randomUUID())
@@ -25,6 +26,15 @@ public class BeerServiceImpl implements BeerService {
                 .beerStyle(beerDto.getBeerStyle())
                 .id(beerDto.getId())
                 .upc(beerDto.getUpc())
+                .build();
+    }
+
+    @Override
+    public BeerDto getBeer(BeerDto beerDto) {
+        return BeerDto.builder()
+                .id(beerDto.getId())
+                .beerName(beerDto.getBeerName())
+                .beerStyle(beerDto.getBeerStyle())
                 .build();
     }
 }

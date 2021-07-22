@@ -11,4 +11,6 @@ public interface BeerService {
     BeerDto getBeerById(UUID beerId);
 
     BeerDto saveBeer(BeerDto beerDto);
+
+    BeerDto getBeer(BeerDto beerDto);
 }
