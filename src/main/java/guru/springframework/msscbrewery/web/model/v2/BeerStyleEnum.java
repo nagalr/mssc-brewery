@@ -5,6 +5,6 @@ package guru.springframework.msscbrewery.web.model.v2;
  */
 
 
-public enum BeerStyle {
+public enum BeerStyleEnum {
     PALE_ALE, GALAXY, COOL
 }

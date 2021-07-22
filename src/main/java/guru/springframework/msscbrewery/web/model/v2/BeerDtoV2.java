@@ -20,6 +20,6 @@ public class BeerDtoV2 {
 
     private UUID id;
     private String beerName;
-    private Enum<BeerStyle> beerStyle;
+    private BeerStyleEnum beerStyle;
     private Long upc;
 }
